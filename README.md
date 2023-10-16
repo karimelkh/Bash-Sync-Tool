@@ -29,9 +29,7 @@ It's all about giving you the flexibility to make the most of our project, wheth
 				git clone https://github.com/karimelkh/Bash-Sync-Tool.git
 			```
 
-2. Edit the `sync_tool.conf` file that includes the source and the destination directories (folders) paths to sync when running `sync_tool.sh` script. Ensure the the paths are in the following form: `path/to/src -> path/to/dest`
-
-	*(**Note:** You add comments using __#__)*
+2. Edit the `sync_tool.conf` file that includes the source and the destination directories (folders) paths to sync when running `sync_tool.sh` script. **(Open the sync_tool.conf for more details)**.
 
 3. Change the **sync_tool.sh** execution permissions. using:
 	```
