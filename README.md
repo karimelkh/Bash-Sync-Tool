@@ -45,6 +45,7 @@ It's all about giving you the flexibility to make the most of our project, wheth
 ## Todos
 
 - [ ] Add logs file that saves the synced folders and more...
+- [ ] Add the max size feature
 
 
 ## Contact
