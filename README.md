@@ -46,6 +46,8 @@ It's all about giving you the flexibility to make the most of our project, wheth
 
 - [ ] Add logs file that saves the synced folders and more...
 - [ ] Add the max size feature
+- [ ] Add current sync directory before the progress bar
+- [ ] Show the list of directories to sync after the total
 
 
 ## Contact
