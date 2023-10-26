@@ -15,7 +15,8 @@ display_progress() {
   local completed=$2
   local completed_bar=$(( $completed * $width / $total - 1 ))
   local left_bar=$(( $width - $completed_bar ))
-  local percent=$(( $completed_bar * 100 / $width ))
+  # local percent=$(( $completed_bar * 100 / $width ))
+  local percent=$(( $completed * 100 / $total ))
 
   printf "Progress:["
   for ((i=1; i<=completed_bar; i++)); do
@@ -45,6 +46,8 @@ done < sync_tool.conf
 echo "Total to sync: $total_to_sync"
 completed=0
 
+display_progress $total_to_sync $completed
+
 while IFS= read -r line; do
   # Trim leading and trailing whitespace from the line
   line=$(echo "$line" | xargs)
@@ -58,11 +61,11 @@ while IFS= read -r line; do
   src=$(echo "$line" | awk -F " -> " '{print $1}')
   dest=$(echo "$line" | awk -F " -> " '{print $2}')
 
-  (( completed++ ))
-
   # Sync src and dest directories with progress
-  display_progress $total_to_sync $completed
   sync_directories "$src" "$dest"
+
+  (( completed++ ))
+  display_progress $total_to_sync $completed
 
 done < sync_tool.conf
 
