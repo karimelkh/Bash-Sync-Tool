@@ -61,6 +61,17 @@ while IFS= read -r line; do
   src=$(echo "$line" | awk -F " -> " '{print $1}')
   dest=$(echo "$line" | awk -F " -> " '{print $2}')
 
+  # test if the src exists
+  if [[ ! -d $src ]]; then
+	break
+  fi
+
+  # test if the dest exist, if not creating it
+  if [[ ! -d $dest ]]; then
+	sudo mkdir -p "$dest"
+	sudo chown -R $USER:$USER "$dest"
+  fi
+
   # Sync src and dest directories with progress
   sync_directories "$src" "$dest"
 
