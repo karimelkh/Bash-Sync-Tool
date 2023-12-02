@@ -23,7 +23,7 @@ display_progress() {
     printf "="
   done
   printf ">"
-  for ((i=1; i<=left_bar; i++)); do
+  for ((i=1; i<left_bar; i++)); do
     printf " "
   done
   printf "] $percent%%"
